@@ -1,0 +1,296 @@
+:root {
+  --mainColor: hsl(180, 29%, 50%);
+  --shadowBox: hsl(180, 29%, 80%);
+  --DarkGrayishCyan: hsl(180, 8%, 52%);
+  --VeryDarkGrayishCyan: hsl(180, 14%, 20%);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clear{
+  background-color: white;
+  border-style: none;
+  color: grey;
+}
+.clear:hover{
+  color: var(--mainColor);
+  text-decoration-line: underline;
+
+
+}
+
+.hero {
+  background-image: url("./images/bg-header-desktop.svg");
+  background-color: hsl(180, 29%, 52%); 
+  height: 20vh;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+.box {
+  background-color: transparent;
+  height: 119px;
+  float: right;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.filter {
+  position: relative;
+  bottom: 50px;
+  height: fit-content;
+  background-color: white;
+  box-shadow: var(--shadowBox) 0px 1px 1px, var(--shadowBox) 0px 2px 2px,
+    var(--shadowBox) 0px 4px 4px, var(--shadowBox) 0px 8px 8px,
+    var(--shadowBox) 0px 16px 16px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filter-boxes{
+  background-color: hsl(180deg 43.38% 93.31%);
+  border-radius: 4px;
+  padding-left: 3px;
+}
+
+.filter i {
+  cursor: pointer;
+  border-radius: 0px 2px 2px 0px;
+  background-color: var(--mainColor);
+  border: none;
+  color: white;
+  padding: 5px;
+}
+.filter i:hover{
+  background-color: var(--VeryDarkGrayishCyan);
+
+}
+
+
+.tags {
+  padding-left: 3px;
+  border-radius: 2px 2px 2px 2px;
+  width: auto;
+  color: var(--mainColor);
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+
+
+/* Card style ////////////////////////////////////////////////////////*/
+.card {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--shadowBox) 0px 1px 1px, var(--shadowBox) 0px 2px 2px,
+    var(--shadowBox) 0px 4px 4px, var(--shadowBox) 0px 8px 8px,
+    var(--shadowBox) 0px 16px 16px;
+  border-radius: 7px;
+}
+
+hr{
+  display: none;
+}
+
+.main-info {
+  display: flex;
+  flex-direction: row;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.post-info {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.comp-title {
+  color: var(--mainColor);
+}
+
+.general-info {
+  color: grey;
+  font-weight: 500;
+}
+.Position {
+  cursor: pointer;
+}
+.tag {
+  background-color: rgb(222, 236, 232);
+  padding: 5.5px;
+  border-radius: 4px;
+  color: var(--mainColor);
+  height: fit-content;
+  cursor: pointer;
+}
+.tag:hover {
+  background-color: var(--mainColor);
+  color: rgb(222, 236, 232);
+}
+.role-info {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  width: 50%;
+}
+.new {
+  background-color: var(--mainColor);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 7px 3px 7px;
+}
+.featured {
+  background-color: var(--VeryDarkGrayishCyan);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 7px 3px 7px;
+}
+.featured-card {
+  border-left: 3px var(--mainColor) solid;
+}
+
+.hide {
+  display: none;
+}
+
+.feature{
+  border-left: 5px solid  var(--mainColor);
+}
+
+.mobile-image{
+  display: none;
+}
+
+
+@media (max-width: 700px) {
+  .hero{
+    background-image: url("./images/bg-header-mobile.svg");
+  }
+  .card{
+    flex-wrap: wrap;
+    flex-direction: column;
+        padding-top: 0px;
+    height: 15%;
+  }
+  .main-info{
+    flex-direction: column;
+    border-bottom: 1px hsl(180, 8%, 52%) solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-top: -19px;
+  }
+  img{
+    display:none;
+  }
+  .mobile-image{
+    display: block;
+    float: inline-end;
+    width: 70px;
+    position: relative;
+    bottom: 30px;
+  }
+  .general-info{
+    font-size: medium;
+    font-weight: 400;
+  }
+  .info{
+    gap: 7px ;
+    font-size: 1rem;
+  }
+
+  .list{
+    gap: 65px;
+    margin-top: 20px;
+  }
+  .role-info{
+    width: 100%;
+    justify-content: start;
+  }
+
+}
