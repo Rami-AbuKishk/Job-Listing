@@ -208,7 +208,7 @@ hr{
 }
 .tag:hover {
   background-color: var(--mainColor);
-  color: rgb(222, 236, 232);
+  color: white
 }
 .role-info {
   display: flex;

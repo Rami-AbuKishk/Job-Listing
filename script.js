@@ -1,27 +1,4 @@
-/**
- * 1. generateCards(jobs)
- *      Receives a list of jobs as a parameter, and then uses this information to create card elements displaying the job details.
- * 
- * 2. addTagEventListeners()
- *      Adds event listeners to each tag in every card.
- * 
- * 3. addTagToFilter()
- *      Ensures that tags are not duplicated.
- * 
- * 4. updateFilterTags()
- *      Updates the filter div by adding tags to it.
- * 
- * 5. createFilterTag()
- *      Responsible for creating the tag boxes inside the filter.
- * 
- * 6. removeFilterTag()
- *      Removes a tag from the filter by passing the type and value of the tag to be deleted.
- * 
- * 7. filterJobs()
- *      Filters the job array based on the selected categories.
- */
-
-
+// Initialize job data and filters
 
 let jobs = [];
 let selectedFilters = {
@@ -40,6 +17,9 @@ fetch("data.json")
   .catch((error) => {
     console.error("Error fetching jobs:", error);
   });
+
+// Fetch job data from JSON and generate initial job cards
+
 
 function generateCards(jobs) {
   const container = document.getElementById("list");
@@ -78,6 +58,7 @@ function generateCards(jobs) {
   addTagEventListeners();
 }
 
+// Add event listeners for each tag to filter by selected categories
 function addTagEventListeners() {
   const tags = document.querySelectorAll(".tag");
   tags.forEach((tag) => {
@@ -95,6 +76,8 @@ function addTagEventListeners() {
   });
 }
 
+
+// Add selected tag to filter and refresh the display
 function addTagToFilter(type, value) {
   if (type === "role" || type === "level") {
     selectedFilters[type] = value;
@@ -108,6 +91,7 @@ function addTagToFilter(type, value) {
   filterJobs();
 }
 
+// Update filter tag display and add remove functionality
 function updateFilterTags() {
   const filterContainer = document.querySelector(".filter");
   const tagsContainer = filterContainer.querySelector(".tags");
@@ -124,7 +108,7 @@ function updateFilterTags() {
     }
   });
 
- 
+  // Toggle filter container visibility
   filterContainer.classList.toggle("hide", !Object.values(selectedFilters).flat().length);
 
   const filterTags = tagsContainer.querySelectorAll(".filter-boxes");
@@ -135,10 +119,14 @@ function updateFilterTags() {
   });
 }
 
+
+// Create individual filter tag HTML
 function createFilterTag(type, value) {
   return `<span class="filter-boxes" data-type="${type}" data-value="${value}">${value} <i class="fa fa-times "></i></span>`;
 }
 
+
+// Remove tag from filter and update job display
 function removeFilterTag(type, value) {
   if (type === "role" || type === "level") {
     selectedFilters[type] = null;
@@ -154,6 +142,8 @@ function removeFilterTag(type, value) {
   filterJobs();
 }
 
+
+// Filter jobs based on selected filters and regenerate job cards
 function filterJobs() {
   const filteredJobs = jobs.filter((job) => {
     const matchesRole = !selectedFilters.role || job.role === selectedFilters.role;
@@ -167,7 +157,7 @@ function filterJobs() {
   generateCards(filteredJobs);
 }
 
-
+// Clear all filters and reset job display
 document.querySelector(".clear").addEventListener("click", () => {
   selectedFilters = { role: null, level: null, languages: [], tools: [] };
   updateFilterTags();
