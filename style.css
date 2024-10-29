@@ -239,8 +239,12 @@ hr{
   display: none;
 }
 
-.feature{
+.card:hover{
   border-left: 5px solid  var(--mainColor);
+}
+
+.card:hover .Position{
+  color: var(--mainColor);
 }
 
 .mobile-image{
